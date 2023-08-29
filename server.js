@@ -3,11 +3,24 @@ var app = express();
 var port = process.env.PORT || 8080;
 var morgan = require('morgan');
 var mongoose = require('mongoose');
+var User = require('./app/models/user');
+var parser = require('body-parser');
 
 
+app.use(parser.json());
+app.use(parser.urlencoded({ extended: true }));
 app.use(morgan('dev'))
-mongoose.connect('mongodb://localhost:27017/local').then(() => console.log('Database connected successfully')).catch(error => console.log(error))
+mongoose.connect('mongodb://localhost:27017/user').then(() => console.log('Database connected successfully')).catch(error => console.log(error))
 
+
+app.post('/users', (req, res) => {
+    var user = new User();
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.email = req.body.email;
+    user.save();
+    res.send('user created')
+});
 
 
 app.listen(port, () => {
