@@ -13,6 +13,8 @@ app.use(morgan('dev'))
 mongoose.connect('mongodb://localhost:27017/user').then(() => console.log('Database connected successfully')).catch(error => console.log(error))
 
 
+
+// user create method
 app.post('/users', (req, res) => {
     var user = new User();
     user.username = req.body.username;
@@ -21,6 +23,9 @@ app.post('/users', (req, res) => {
     user.save();
     res.send('user created')
 });
+
+
+
 
 
 app.listen(port, () => {
