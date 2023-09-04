@@ -20,8 +20,12 @@ app.post('/users', (req, res) => {
     user.username = req.body.username;
     user.password = req.body.password;
     user.email = req.body.email;
-    user.save();
-    res.send('user created')
+    user.save().then(() => {
+        res.send('User created')
+    }).catch((err) => {
+        res.send('Email or Username already exists')
+    });
+
 });
 
 
