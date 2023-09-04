@@ -3,36 +3,17 @@ var app = express();
 var port = process.env.PORT || 8080;
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var User = require('./app/models/user');
 var parser = require('body-parser');
+var router = express.Router();
+var appRoutes = require('./app/routes/api')(router);
 
 
+app.use(morgan('dev'))
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
-app.use(morgan('dev'))
+app.use('/api', appRoutes);
+
 mongoose.connect('mongodb://localhost:27017/user').then(() => console.log('Database connected successfully')).catch(error => console.log(error))
-
-
-
-// user create method
-app.post('/users', (req, res) => {
-    var user = new User();
-    user.username = req.body.username;
-    user.password = req.body.password;
-    user.email = req.body.email;
-    if (req.body.username === null || req.body.username === '' ||
-        req.body.password === null || req.body.password === '' ||
-        req.body.email === '' || req.body.email === null) {
-        res.send('Ensure username, email and password were provided')
-    } else {
-        user.save().then(() => {
-            res.send('User created')
-        }).catch((err) => {
-            res.send('Email or Username already exists')
-        });
-    }
-
-});
 
 
 
