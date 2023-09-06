@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ListingsPageComponent } from './listings-page/listings-page.component';
 import { ListingsDetailPageComponent } from './listings-detail-page/listings-detail-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { MyListingsPageComponent } from './my-listings-page/my-listings-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListingsPageComponent,
     ListingsDetailPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    MyListingsPageComponent
   ],
   imports: [
     BrowserModule,
