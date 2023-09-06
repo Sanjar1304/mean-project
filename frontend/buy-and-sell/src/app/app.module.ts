@@ -7,6 +7,7 @@ import { ListingsPageComponent } from './listings-page/listings-page.component';
 import { ListingsDetailPageComponent } from './listings-detail-page/listings-detail-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MyListingsPageComponent } from './my-listings-page/my-listings-page.component';
+import { NewListingsPageComponent } from './new-listings-page/new-listings-page.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MyListingsPageComponent } from './my-listings-page/my-listings-page.com
     ListingsPageComponent,
     ListingsDetailPageComponent,
     ContactPageComponent,
-    MyListingsPageComponent
+    MyListingsPageComponent,
+    NewListingsPageComponent
   ],
   imports: [
     BrowserModule,
