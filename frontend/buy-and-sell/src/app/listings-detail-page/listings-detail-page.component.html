@@ -1,11 +1,11 @@
 <div class="content-box">
     <a routerLink="/listings">
-        <button>Back</button>
+        <button type="button">Back</button>
     </a>
     <h2>{{listing?.name}}</h2>
     <p>{{listing?.description}}</p>
     <p>{{listing?.price | currency: 'UZS'}}</p>
     <a routerLink="/contact/{{listing?.id}}">
-        <button>Contact Seller</button>
+        <button type="button">Contact Seller</button>
     </a>
 </div>
