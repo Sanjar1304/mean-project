@@ -11,6 +11,7 @@ import { MyCurrency } from './pipes/currencyPipe';
 import { MyListingsPageComponent } from './my-listings-page/my-listings-page.component';
 import { NewListingsPageComponent } from './new-listings-page/new-listings-page.component';
 import { NgModule } from '@angular/core';
+import { ListingDataFormComponent } from './listing-data-form/listing-data-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgModule } from '@angular/core';
     MyListingsPageComponent,
     NewListingsPageComponent,
     EditListingPageComponent,
-    MyCurrency
+    MyCurrency,
+    ListingDataFormComponent
   ],
   imports: [
     BrowserModule,
