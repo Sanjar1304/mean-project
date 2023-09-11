@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
 })
 export class NewListingsPageComponent implements OnInit{
 
-  name: string = '';
-  description: string = '';
-  price: string = '';
 
   constructor(private router: Router){}
 
@@ -19,13 +16,10 @@ export class NewListingsPageComponent implements OnInit{
   ngOnInit():void {}
 
 
-
   onSubmit(): void{
     alert(`Creating new listing page...`);
     this.router.navigateByUrl('/my-listings')
   }
-
-
 
 
 
