@@ -1,6 +1,8 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Listing } from '../types';
+import { fakeMyListings } from '../fake-data';
 
 @Component({
   selector: 'app-edit-listing-page',
@@ -10,10 +12,17 @@ import { Router } from '@angular/router';
 export class EditListingPageComponent implements OnInit {
 
 
-  constructor(private router: Router){}
+  listing: Listing | undefined;
 
 
-  ngOnInit(): void {}
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute){}
+
+
+  ngOnInit(): void {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.listing = fakeMyListings.find(value => value.id === id)
+  }
 
 
   onSubmit():void{
